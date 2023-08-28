@@ -75,8 +75,10 @@ async function run() {
     if(flag)
       UploadName += `_${flag}`;
 
-    core.exportVariable('UPLOAD_NAME', UploadName);
-    core.exportVariable('UPLOAD_DIR', 'Build');
+	  
+	//	gr: this build dir should go into makefiles or something
+    core.setOutput('UPLOAD_NAME', UploadName);
+    core.setOutput('UPLOAD_DIR', 'Build');
   } catch (error) {
     core.setFailed(error.message);
   }
